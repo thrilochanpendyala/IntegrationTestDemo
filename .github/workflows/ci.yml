@@ -1,0 +1,15 @@
+name: Integration Test
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Compile and Run Integration Tests
+        run: |
+          gcc test_integration.c -o test
+          ./test
