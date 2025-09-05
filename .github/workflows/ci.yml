@@ -13,3 +13,9 @@ jobs:
         run: |
           gcc test_integration.c -o test
           ./test
+
+      - name: Compile and Run main_v2
+        run: |
+          gcc main_v2.c -o main_v2
+          ./main_v2 > output.txt
+          grep -q "Result: -1" output.txt

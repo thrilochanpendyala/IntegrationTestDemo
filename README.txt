@@ -1,24 +1,23 @@
-Step-by-Step Guide for Integration Testing with CI/CD using GitHub
+Integration Testing Demo with CI/CD
 
-1. Create a GitHub repository (e.g., integration-testing-demo).
-2. Clone the repository to your local machine.
-3. Add the following files to the repo:
-   - math_utils.c
-   - main_v1.c
-   - main_v2.c
-   - test_integration.c
-   - .github/workflows/ci.yml (create folders as needed)
-   - README.txt
+This project demonstrates software integration testing using GitHub Actions CI/CD workflow.
 
-4. Commit and push the files to GitHub.
+Contents:
+- math_utils.c: Shared utility function
+- main_v1.c: Version 1 of main application
+- main_v2.c: Version 2 with intentional regression
+- test_integration.c: Integration test with assertions
+- .github/workflows/ci.yml: GitHub Actions workflow
+- README.txt: Instructions
 
-5. GitHub Actions will automatically run the CI workflow:
-   - It compiles and runs test_integration.c
-   - If any assertion fails, the workflow will fail
+Steps to Use:
+1. Create a GitHub repository and push these files.
+2. GitHub Actions will automatically run the workflow on each push or pull request.
+3. The workflow compiles and runs integration tests and main_v2.c.
+4. It checks for expected output to simulate regression testing.
 
-6. To simulate regression:
-   - Push main_v1.c first and verify tests pass
-   - Replace with main_v2.c and push again
-   - Observe test results in GitHub Actions
+Expected Output:
+- Integration tests must pass.
+- main_v2.c must print "Result: -1" to pass output validation.
 
-This setup helps validate integration and detect regressions automatically.
+Modify test_integration.c or main_v2.c to simulate failures and observe CI behavior.
